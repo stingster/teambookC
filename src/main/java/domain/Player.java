@@ -14,7 +14,7 @@ public abstract class Player
 	private int age;
 	private String departament;
 	private String gender;
-	private List<Orientation> orientation;
+	private List<Category> categories;
 
 	
 	

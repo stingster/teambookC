@@ -18,9 +18,11 @@ enum Dificulty
 
 public class Activity
 {
-
 	private String description;
 	private Dificulty dificulty;
+	private boolean isChecked;
+	
+	
 	
 	
 }

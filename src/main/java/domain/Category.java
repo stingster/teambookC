@@ -9,11 +9,11 @@ enum Type{
 	SELFDEV
 }
 
-public class Orientation
+public class Category
 {
 	private int stars;
 	private Type type;
-	private List<Activity> activity;
+	private List<Activity> activities;
 	private int noOfActions;
 
 	private int computeStars()
