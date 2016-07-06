@@ -1,8 +1,8 @@
 package accessRolesManager;
 
-public interface CreatorRole extends ReaderRole
+public interface CreatorRole extends UpdaterRole
 {
 
-void create();
-	
+	void create();
+
 }

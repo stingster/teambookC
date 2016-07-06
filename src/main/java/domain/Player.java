@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -15,10 +16,11 @@ public class Player
 	private String firstName;
 	private String lastName;
 	private String email;
+	private byte[] picture;
 	private String password;
 	private GregorianCalendar birthday;
 	private int age;
-	private String departament;
+	private String department;
 	private String position;
 	private String gender;
 	private List<Category> categories;
@@ -90,6 +92,16 @@ public class Player
 		}
 	}
 
+	public synchronized byte[] getPicture()
+	{
+		return picture;
+	}
+
+	public synchronized void setPicture(byte[] picture)
+	{
+		this.picture = picture;
+	}
+	
 	public synchronized String getPassword()
 	{
 		return password;
@@ -136,14 +148,14 @@ public class Player
 		}
 	}
 
-	public synchronized String getDepartament()
+	public synchronized String getDepartment()
 	{
-		return departament;
+		return department;
 	}
 
-	public synchronized void setDepartament(String departament)
+	public synchronized void setDepartment(String department)
 	{
-		this.departament = departament;
+		this.department = department;
 	}
 
 	public synchronized String getPosition()
@@ -184,12 +196,15 @@ public class Player
 		result = prime * result + age;
 		result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
 		result = prime * result + ((categories == null) ? 0 : categories.hashCode());
-		result = prime * result + ((departament == null) ? 0 : departament.hashCode());
+		result = prime * result + ((department == null) ? 0 : department.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
+		result = prime * result + id;
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + Arrays.hashCode(picture);
+		result = prime * result + ((position == null) ? 0 : position.hashCode());
 		return result;
 	}
 
@@ -219,12 +234,12 @@ public class Player
 		}
 		else if (!categories.equals(other.categories))
 			return false;
-		if (departament == null)
+		if (department == null)
 		{
-			if (other.departament != null)
+			if (other.department != null)
 				return false;
 		}
-		else if (!departament.equals(other.departament))
+		else if (!department.equals(other.department))
 			return false;
 		if (email == null)
 		{
@@ -247,6 +262,8 @@ public class Player
 		}
 		else if (!gender.equals(other.gender))
 			return false;
+		if (id != other.id)
+			return false;
 		if (lastName == null)
 		{
 			if (other.lastName != null)
@@ -261,9 +278,16 @@ public class Player
 		}
 		else if (!password.equals(other.password))
 			return false;
+		if (!Arrays.equals(picture, other.picture))
+			return false;
+		if (position == null)
+		{
+			if (other.position != null)
+				return false;
+		}
+		else if (!position.equals(other.position))
+			return false;
 		return true;
 	}
-
-
 
 }

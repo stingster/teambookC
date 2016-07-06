@@ -1,6 +1,6 @@
 package accessRolesManager;
 
-public interface EraserRole extends UpdaterRole
+public interface EraserRole extends CreatorRole
 {
 
 

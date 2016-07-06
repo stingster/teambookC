@@ -1,29 +1,23 @@
 package accessRolesManager;
 
+import java.util.GregorianCalendar;
 import java.util.List;
 
+import domain.Category;
 import domain.InvalidRegexExpressionException;
 import domain.Player;
 import rest.ReadService;
+import rest.UpdateService;
 
 public class RoleMethodsIndex implements EraserRole
 {
 
 	@Override
-	public void update()
-	{
-		System.out.println("Update.");
-		
-	}
-
-	@Override
 	public void create()
 	{
-		System.out.println("Create.");
-		
+		// TODO Auto-generated method stub
 		
 	}
-
 
 
 	@Override
@@ -49,7 +43,6 @@ public class RoleMethodsIndex implements EraserRole
 			return null;
 		}
 	}
-
 	
 	@Override
 	public List<Player> getPlayers()
@@ -85,6 +78,63 @@ public class RoleMethodsIndex implements EraserRole
 	public List<Player> listPlayersByAllSkills()
 	{
 		return ReadService.listPlayersByAllSkills();
+	}
+
+	
+	
+	// !UPDATE! METHODS
+
+	@Override
+	public boolean updatePicture(String id, byte[] picture)
+	{
+		return UpdateService.updatePicture(id, picture);
+	}
+
+	@Override
+	public boolean updateFirstName(String id, String firstName)
+	{
+		return UpdateService.updateFirstName(id, firstName);
+	}
+
+	@Override
+	public boolean updateLastName(String id, String lastName)
+	{
+		return UpdateService.updateLastName(id, lastName);
+	}
+
+
+	@Override
+	public boolean updateBirthday(String id, GregorianCalendar birthday)
+	{
+		return UpdateService.updateBirthday(id, birthday);
+	}
+
+
+	@Override
+	public boolean updateDepartment(String id, String department)
+	{
+		return UpdateService.updateDepartment(id, department);
+	}
+
+
+	@Override
+	public boolean updatePosition(String id, String position)
+	{
+		return UpdateService.updatePosition(id, position);
+	}
+
+
+	@Override
+	public boolean updateGender(String id, String gender)
+	{
+		return UpdateService.updateGender(id, gender);
+	}
+
+
+	@Override
+	public boolean updateCategories(String id, List<Category> categories)
+	{
+		return UpdateService.updateCategories(id, categories);
 	}
 
 }
