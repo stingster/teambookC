@@ -9,8 +9,7 @@ public class Test
 	public static void main(String[] args)
 	{
 
-	Player player = new PlayerEmployee();
-
+		Player player = new PlayerEmployee();
 
 	}
 }

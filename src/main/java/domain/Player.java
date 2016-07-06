@@ -6,9 +6,12 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Player
 {
-
+	private int id;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -16,9 +19,20 @@ public class Player
 	private GregorianCalendar birthday;
 	private int age;
 	private String departament;
+	private String position;
 	private String gender;
 	private List<Category> categories;
 
+	public synchronized int getId()
+	{
+		return id;
+	}
+
+	public synchronized void setId(int id)
+	{
+		this.id = id;
+	}
+	
 	public synchronized String getFirstName()
 	{
 		return firstName;
@@ -132,6 +146,16 @@ public class Player
 		this.departament = departament;
 	}
 
+	public synchronized String getPosition()
+	{
+		return position;
+	}
+
+	public synchronized void setPosition(String position)
+	{
+		this.position = position;
+	}
+	
 	public synchronized String getGender()
 	{
 		return gender;
@@ -151,5 +175,95 @@ public class Player
 	{
 		this.categories = categories;
 	}
+
+	@Override
+	public int hashCode()
+	{
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + age;
+		result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
+		result = prime * result + ((categories == null) ? 0 : categories.hashCode());
+		result = prime * result + ((departament == null) ? 0 : departament.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Player other = (Player) obj;
+		if (age != other.age)
+			return false;
+		if (birthday == null)
+		{
+			if (other.birthday != null)
+				return false;
+		}
+		else if (!birthday.equals(other.birthday))
+			return false;
+		if (categories == null)
+		{
+			if (other.categories != null)
+				return false;
+		}
+		else if (!categories.equals(other.categories))
+			return false;
+		if (departament == null)
+		{
+			if (other.departament != null)
+				return false;
+		}
+		else if (!departament.equals(other.departament))
+			return false;
+		if (email == null)
+		{
+			if (other.email != null)
+				return false;
+		}
+		else if (!email.equals(other.email))
+			return false;
+		if (firstName == null)
+		{
+			if (other.firstName != null)
+				return false;
+		}
+		else if (!firstName.equals(other.firstName))
+			return false;
+		if (gender == null)
+		{
+			if (other.gender != null)
+				return false;
+		}
+		else if (!gender.equals(other.gender))
+			return false;
+		if (lastName == null)
+		{
+			if (other.lastName != null)
+				return false;
+		}
+		else if (!lastName.equals(other.lastName))
+			return false;
+		if (password == null)
+		{
+			if (other.password != null)
+				return false;
+		}
+		else if (!password.equals(other.password))
+			return false;
+		return true;
+	}
+
+
 
 }
