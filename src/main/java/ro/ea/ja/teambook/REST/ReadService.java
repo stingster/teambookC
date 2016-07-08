@@ -1,4 +1,4 @@
-package rest;
+package ro.ea.ja.teambook.REST;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.GenericType;
 import com.sun.jersey.api.client.WebResource;
 
-import domain.InvalidRegexExpressionException;
-import domain.Player;
+import ro.ea.ja.teambook.domain.InvalidRegexExpressionException;
+import ro.ea.ja.teambook.domain.Player;
 
 public class ReadService
 {

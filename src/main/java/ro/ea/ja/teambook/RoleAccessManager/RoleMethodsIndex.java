@@ -1,13 +1,13 @@
-package accessRolesManager;
+package ro.ea.ja.teambook.RoleAccessManager;
 
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import domain.Category;
-import domain.InvalidRegexExpressionException;
-import domain.Player;
-import rest.ReadService;
-import rest.UpdateService;
+import ro.ea.ja.teambook.REST.ReadService;
+import ro.ea.ja.teambook.REST.UpdateService;
+import ro.ea.ja.teambook.domain.Category;
+import ro.ea.ja.teambook.domain.InvalidRegexExpressionException;
+import ro.ea.ja.teambook.domain.Player;
 
 public class RoleMethodsIndex implements EraserRole
 {

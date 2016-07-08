@@ -1,4 +1,4 @@
-package domain;
+package ro.ea.ja.teambook.domain;
 
 import java.util.Arrays;
 import java.util.Date;

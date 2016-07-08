@@ -1,9 +1,9 @@
-package accessRolesManager;
+package ro.ea.ja.teambook.RoleAccessManager;
 
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import domain.Category;
+import ro.ea.ja.teambook.domain.Category;
 
 public interface UpdaterRole extends ReaderRole
 {

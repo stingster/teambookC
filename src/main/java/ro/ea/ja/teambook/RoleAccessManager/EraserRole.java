@@ -1,4 +1,4 @@
-package accessRolesManager;
+package ro.ea.ja.teambook.RoleAccessManager;
 
 public interface EraserRole extends CreatorRole
 {

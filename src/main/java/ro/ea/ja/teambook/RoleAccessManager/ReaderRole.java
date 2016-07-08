@@ -1,8 +1,8 @@
-package accessRolesManager;
+package ro.ea.ja.teambook.RoleAccessManager;
 
 import java.util.List;
 
-import domain.Player;
+import ro.ea.ja.teambook.domain.Player;
 
 public interface ReaderRole
 {

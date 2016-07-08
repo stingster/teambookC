@@ -1,7 +1,7 @@
-package domain;
+package ro.ea.ja.teambook.domain;
 
-import accessRolesManager.EraserRole;
-import accessRolesManager.RoleMethodsIndex;
+import ro.ea.ja.teambook.RoleAccessManager.EraserRole;
+import ro.ea.ja.teambook.RoleAccessManager.RoleMethodsIndex;
 
 public class PlayerManager extends Player
 {

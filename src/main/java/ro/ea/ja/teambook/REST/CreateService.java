@@ -1,10 +1,10 @@
-package rest;
+package ro.ea.ja.teambook.REST;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
-import domain.Player;
+import ro.ea.ja.teambook.domain.Player;
 
 public class CreateService
 {

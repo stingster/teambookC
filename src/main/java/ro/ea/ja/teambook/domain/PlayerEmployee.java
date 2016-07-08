@@ -1,7 +1,7 @@
-package domain;
+package ro.ea.ja.teambook.domain;
 
-import accessRolesManager.ReaderRole;
-import accessRolesManager.RoleMethodsIndex;
+import ro.ea.ja.teambook.RoleAccessManager.ReaderRole;
+import ro.ea.ja.teambook.RoleAccessManager.RoleMethodsIndex;
 
 public class PlayerEmployee extends Player
 {
