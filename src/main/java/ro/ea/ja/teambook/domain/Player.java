@@ -109,8 +109,8 @@ public class Player
 
 	public synchronized void setPassword(String password) throws InvalidRegexExpressionException
 	{
-		Pattern p = Pattern.compile("([a-zA-Z0-9@*#]{8,15})");
-		Matcher m = p.matcher(email);
+		Pattern p = Pattern.compile("[a-zA-Z0-9@*#]{8,15}");
+		Matcher m = p.matcher(password);
 		if (m.matches())
 		{
 			this.password = password;
@@ -147,6 +147,7 @@ public class Player
 			this.age = (int) (((ageInMillis / 1000) / 3600) / 24) / 365;
 		}
 	}
+
 
 	public synchronized String getDepartment()
 	{

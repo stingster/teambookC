@@ -1,14 +1,13 @@
 package ro.ea.ja.teambook.domain;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-enum Type{
-	HEALTH,
-	SOCIAL,
-	TECH,
-	SELFDEV
+enum Type
+{
+	HEALTH, SOCIAL, TECH, SELFDEV
 }
 
 @XmlRootElement
@@ -18,42 +17,49 @@ public class Category
 	private Type type;
 	private List<Activity> activities;
 	private int noOfActions;
-	
+
 	public synchronized int getStars()
 	{
 		return stars;
 	}
-	
-	public synchronized void setStars(int stars)
+
+	public synchronized void setStars(int stars) throws IOException
 	{
-		this.stars = stars;
+		if (stars <= 7 && stars >= 1)
+		{
+			this.stars = stars;
+		}
+		else
+		{
+			throw new IOException();
+		}
 	}
-	
+
 	public synchronized Type getType()
 	{
 		return type;
 	}
-	
+
 	public synchronized void setType(Type type)
 	{
 		this.type = type;
 	}
-	
+
 	public synchronized List<Activity> getActivities()
 	{
 		return activities;
 	}
-	
+
 	public synchronized void setActivities(List<Activity> activities)
 	{
 		this.activities = activities;
 	}
-	
+
 	public synchronized int getNoOfActions()
 	{
 		return noOfActions;
 	}
-	
+
 	public synchronized void setNoOfActions(int noOfActions)
 	{
 		this.noOfActions = noOfActions;
@@ -96,7 +102,5 @@ public class Category
 			return false;
 		return true;
 	}
-	
-	
 
 }

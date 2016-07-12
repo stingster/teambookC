@@ -1,16 +1,11 @@
 package ro.ea.ja.teambook.view;
 
-package view;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
@@ -24,7 +19,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class MainWindow extends JFrame {
+import ro.ea.ja.teambook.domain.Player;
+import ro.ea.ja.teambook.domain.PlayerEmployee;
+
+public class MainWindow extends JFrame
+{
 
 	/**
 	 * 
@@ -51,18 +50,24 @@ public class MainWindow extends JFrame {
 	private JLabel softSkillLabel;
 	private JLabel star;
 
-	public MainWindow() {
+	public MainWindow()
+	{
 		initialize();
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		MainWindow main = new MainWindow();
 	}
 
-	private void initialize() {
-		try {
+	private void initialize()
+	{
+		try
+		{
 			loginBackground = ImageIO.read(getClass().getResource("/backgroundPics/reception.jpg"));
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 
 			e.printStackTrace();
 		}
@@ -73,10 +78,13 @@ public class MainWindow extends JFrame {
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 
-		panel = new JPanel() {
+		panel = new JPanel()
+		{
 			@Override
-			public void paintComponent(Graphics g) {
-				if (loginBackground != null) {
+			public void paintComponent(Graphics g)
+			{
+				if (loginBackground != null)
+				{
 					Graphics2D g2d = (Graphics2D) g.create();
 					g2d.drawImage(loginBackground, 0, 0, this);
 					g2d.dispose();
@@ -86,9 +94,11 @@ public class MainWindow extends JFrame {
 		panel.setBounds(0, 0, screenSize.width / 2, screenSize.height / 2);
 		panel.setVisible(true);
 
-		container = new JPanel() {
+		container = new JPanel()
+		{
 			@Override
-			protected void paintComponent(Graphics g) {
+			protected void paintComponent(Graphics g)
+			{
 				Dimension arcs = new Dimension(15, 15);
 				Graphics2D graphics = (Graphics2D) g;
 				int width = getWidth();
@@ -133,10 +143,13 @@ public class MainWindow extends JFrame {
 		addListenters();
 	}
 
-	private void playerStatsWindow() {
-		menuContainer = new JPanel() {
+	private void playerStatsWindow()
+	{
+		menuContainer = new JPanel()
+		{
 			@Override
-			protected void paintComponent(Graphics g) {
+			protected void paintComponent(Graphics g)
+			{
 				Dimension arcs = new Dimension(15, 15);
 				Graphics2D graphics = (Graphics2D) g;
 				int width = getWidth();
@@ -149,9 +162,11 @@ public class MainWindow extends JFrame {
 		menuContainer.setOpaque(false);
 		menuContainer.setVisible(true);
 
-		statsContainer = new JPanel() {
+		statsContainer = new JPanel()
+		{
 			@Override
-			protected void paintComponent(Graphics g) {
+			protected void paintComponent(Graphics g)
+			{
 				Dimension arcs = new Dimension(15, 15);
 				Graphics2D graphics = (Graphics2D) g;
 				int width = getWidth();
@@ -165,16 +180,22 @@ public class MainWindow extends JFrame {
 		statsContainer.setVisible(true);
 		this.remove(container);
 		this.remove(panel);
-		try {
+		try
+		{
 			mainWindowBackground = ImageIO.read(getClass().getResource("/backgroundPics/playerStats.jpg"));
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			e.printStackTrace();
 			System.out.println("eroro");
 		}
-		statsPanel = new JPanel() {
+		statsPanel = new JPanel()
+		{
 			@Override
-			public void paintComponent(Graphics g) {
-				if (loginBackground != null) {
+			public void paintComponent(Graphics g)
+			{
+				if (loginBackground != null)
+				{
 					Graphics2D g2d = (Graphics2D) g.create();
 					g2d.drawImage(mainWindowBackground, 0, 0, this);
 					g2d.dispose();
@@ -275,12 +296,15 @@ public class MainWindow extends JFrame {
 
 	}
 
-	public void showBlackStars() {
+	public void showBlackStars()
+	{
 		ImageIcon starPic = new ImageIcon(getClass().getResource("/backgroundPics/blackStar.png"));
 		int pozX = 140;
 		int pozY = 20;
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 7; j++) {
+		for (int i = 0; i < 4; i++)
+		{
+			for (int j = 0; j < 7; j++)
+			{
 				star = new JLabel(starPic);
 				star.setBounds(pozX, pozY, 30, 30);
 				pozX += 40;
@@ -291,33 +315,38 @@ public class MainWindow extends JFrame {
 		}
 	}
 
-	public void addStarStats(int healthStarsNo, int socialStarsNo, int technicStarsNo, int skillStarsNo) {
+	public void addStarStats(int healthStarsNo, int socialStarsNo, int technicStarsNo, int skillStarsNo)
+	{
 		// TODO stuff in controller to figure out how many stars would be shown
 		ImageIcon starPic = new ImageIcon(getClass().getResource("/backgroundPics/smallStar.png"));
 
 		int poz = 140;
-		for (int i = 0; i < healthStarsNo; i++) {
+		for (int i = 0; i < healthStarsNo; i++)
+		{
 			star = new JLabel(starPic);
 			star.setBounds(poz, 20, 30, 30);
 			poz += 40;
 			statsContainer.add(star);
 		}
 		poz = 140;
-		for (int i = 0; i < socialStarsNo; i++) {
+		for (int i = 0; i < socialStarsNo; i++)
+		{
 			star = new JLabel(starPic);
 			star.setBounds(poz, 80, 30, 30);
 			poz += 40;
 			statsContainer.add(star);
 		}
 		poz = 140;
-		for (int i = 0; i < technicStarsNo; i++) {
+		for (int i = 0; i < technicStarsNo; i++)
+		{
 			star = new JLabel(starPic);
 			star.setBounds(poz, 140, 30, 30);
 			poz += 40;
 			statsContainer.add(star);
 		}
 		poz = 140;
-		for (int i = 0; i < skillStarsNo; i++) {
+		for (int i = 0; i < skillStarsNo; i++)
+		{
 			star = new JLabel(starPic);
 			star.setBounds(poz, 200, 30, 30);
 			poz += 40;
@@ -325,24 +354,36 @@ public class MainWindow extends JFrame {
 		}
 	}
 
-	public void addListenters() {
-		fieldPass.addKeyListener(new KeyAdapter() {
+	public void addListenters()
+	{
+		fieldPass.addKeyListener(new KeyAdapter()
+		{
 			@Override
-			public void keyReleased(KeyEvent e) {
-				// TODO verify credentials
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					playerStatsWindow();
+			public void keyReleased(KeyEvent e)
+			{
+				if (e.getKeyCode() == KeyEvent.VK_ENTER)
+				{
+
+					PlayerEmployee employee = new PlayerEmployee();
+					Player playerWithId = employee.getEmployee().getPlayer(fieldUser.getText(), fieldPass.getText());
+					
+					if (playerWithId != null)
+					{
+						playerStatsWindow();
+					}
 				}
 			}
 		});
 	}
 
-	public String showPlayerName() {
+	public String showPlayerName()
+	{
 		// TODO stuff in controller to get the players name
-		return "Jhon Doe";
+		return "John Doe";
 	}
 
-	public ImageIcon showPlayerPhoto() {
+	public ImageIcon showPlayerPhoto()
+	{
 		// TODO stuff in controller to get the players photo
 		return new ImageIcon(getClass().getResource("/backgroundPics/picturePlaceholder.png"));
 	}
