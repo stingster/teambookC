@@ -1,25 +1,25 @@
 package ro.ea.ja.teambook.domain;
 
 import ro.ea.ja.teambook.RoleAccessManager.EraserRole;
-import ro.ea.ja.teambook.RoleAccessManager.RoleMethodsIndex;
+import ro.ea.ja.teambook.controller.*;
 
 public class PlayerManager extends Player
 {
 
-	private EraserRole manager;
+	private EraserRole eraserRole;
 	
 	public PlayerManager(){
-		manager = new RoleMethodsIndex();
+		eraserRole = new Controller();
 	}
 
 	public synchronized EraserRole getManager()
 	{
-		return manager;
+		return eraserRole;
 	}
 
 	public synchronized void setManager(EraserRole manager)
 	{
-		this.manager = manager;
+		this.eraserRole = manager;
 	}
 	
 	

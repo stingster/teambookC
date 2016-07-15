@@ -143,7 +143,7 @@ public class MainWindow extends JFrame
 		addListenters();
 	}
 
-	private void playerStatsWindow()
+	private void playerStatsWindow(Player player)
 	{
 		menuContainer = new JPanel()
 		{
@@ -208,7 +208,7 @@ public class MainWindow extends JFrame
 		this.add(menuContainer);
 		this.add(statsPanel);
 		repaint();
-		JLabel userName = new JLabel("Hello, " + showPlayerName());
+		JLabel userName = new JLabel("Hello, " + player.getFirstName());
 		userName.setBounds(120, 80, 200, 40);
 		userName.setFont(new Font("Serif", Font.PLAIN, 30));
 		userName.setForeground(Color.orange);
@@ -291,7 +291,35 @@ public class MainWindow extends JFrame
 		softSkillLabel.setForeground(Color.orange);
 		softSkillLabel.setBounds(10, 205, 120, 20);
 		statsContainer.add(softSkillLabel);
-		addStarStats(2, 6, 5, 4);
+		// TODO stuff in controller to figure out how many stars would be shown
+
+		int health = 0;
+		int social = 0;
+		int tech = 0;
+		int selfDev = 0;
+
+		for (int i = 0; i < player.getCategories().size(); i++)
+		{
+			switch (player.getCategories().get(i).getType())
+			{
+			case HEALTH:
+				health = player.getCategories().get(i).getStars();
+				break;
+			case SOCIAL:
+				social = player.getCategories().get(i).getStars();
+				break;
+			case TECH:
+				tech = player.getCategories().get(i).getStars();
+				break;
+			case SELFDEV:
+				selfDev = player.getCategories().get(i).getStars();
+				break;
+			default:
+				System.out.println("No enum Type was found!");
+			}
+		}
+
+		addStarStats(health, social, tech, selfDev);
 		showBlackStars();
 
 	}
@@ -317,7 +345,7 @@ public class MainWindow extends JFrame
 
 	public void addStarStats(int healthStarsNo, int socialStarsNo, int technicStarsNo, int skillStarsNo)
 	{
-		// TODO stuff in controller to figure out how many stars would be shown
+
 		ImageIcon starPic = new ImageIcon(getClass().getResource("/backgroundPics/smallStar.png"));
 
 		int poz = 140;
@@ -363,23 +391,16 @@ public class MainWindow extends JFrame
 			{
 				if (e.getKeyCode() == KeyEvent.VK_ENTER)
 				{
-
 					PlayerEmployee employee = new PlayerEmployee();
-					Player playerWithId = employee.getEmployee().getPlayer(fieldUser.getText(), fieldPass.getText());
-					
+					Player playerWithId = employee.getReaderRole().getPlayer(fieldUser.getText(), fieldPass.getText());
+
 					if (playerWithId != null)
 					{
-						playerStatsWindow();
+						playerStatsWindow(playerWithId);
 					}
 				}
 			}
 		});
-	}
-
-	public String showPlayerName()
-	{
-		// TODO stuff in controller to get the players name
-		return "John Doe";
 	}
 
 	public ImageIcon showPlayerPhoto()

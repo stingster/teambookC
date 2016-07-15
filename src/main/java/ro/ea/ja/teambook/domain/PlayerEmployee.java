@@ -1,26 +1,26 @@
 package ro.ea.ja.teambook.domain;
 
 import ro.ea.ja.teambook.RoleAccessManager.ReaderRole;
-import ro.ea.ja.teambook.RoleAccessManager.RoleMethodsIndex;
+import ro.ea.ja.teambook.controller.*;
 
 public class PlayerEmployee extends Player
 {
 
-	private ReaderRole employee;
+	private ReaderRole readerRole;
 
 	public PlayerEmployee()
 	{
-		employee = new RoleMethodsIndex();
+		readerRole = new Controller();
 	}
 
-	public synchronized ReaderRole getEmployee()
+	public synchronized ReaderRole getReaderRole()
 	{
-		return employee;
+		return readerRole;
 	}
 
-	public synchronized void setEmployee(ReaderRole employee)
+	public synchronized void setReaderRole(ReaderRole employee)
 	{
-		this.employee = employee;
+		this.readerRole = employee;
 	}
 
 }

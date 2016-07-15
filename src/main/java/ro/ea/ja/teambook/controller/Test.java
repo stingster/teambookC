@@ -10,7 +10,7 @@ public class Test
 
 		PlayerEmployee player = new PlayerEmployee();
 		
-		player.getEmployee().getPlayer("weqweq", "aadas");
+		player.getReaderRole().getPlayer("weqweq", "aadas");
 
 	}
 }

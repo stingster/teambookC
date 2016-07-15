@@ -1,15 +1,16 @@
-package ro.ea.ja.teambook.RoleAccessManager;
+package ro.ea.ja.teambook.controller;
 
 import java.util.GregorianCalendar;
 import java.util.List;
 
 import ro.ea.ja.teambook.REST.ReadService;
 import ro.ea.ja.teambook.REST.UpdateService;
+import ro.ea.ja.teambook.RoleAccessManager.EraserRole;
 import ro.ea.ja.teambook.domain.Category;
 import ro.ea.ja.teambook.domain.InvalidRegexExpressionException;
 import ro.ea.ja.teambook.domain.Player;
 
-public class RoleMethodsIndex implements EraserRole
+public class Controller implements EraserRole
 {
 
 	@Override
